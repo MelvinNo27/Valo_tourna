@@ -119,7 +119,8 @@
   .qr-sub { font-size:13px; color:var(--off-white); margin-bottom:24px; font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; }
   .qr-amount { font-family:'Orbitron',monospace; font-size:36px; font-weight:700; color:var(--red); margin-bottom:24px; }
   .qr-amount span { font-size:18px; opacity:0.7; }
-  .qr-image-wrap { display:inline-block; background:white; padding:16px; border-radius:4px; margin-bottom:20px; box-shadow:0 0 40px rgba(0,224,196,0.15); }
+  .qr-image-wrap { display:block; background:white; padding:16px; border-radius:4px; margin:0 auto 20px; box-shadow:0 0 40px rgba(0,224,196,0.15); max-width:min(260px, calc(100% - 32px)); box-sizing:border-box; }
+.qr-image-wrap img { display:block; width:100%; height:auto; }
   .gcash-number { font-family:'Orbitron',monospace; font-size:20px; color:var(--teal); letter-spacing:3px; margin-bottom:6px; }
   .gcash-name { font-family:'Barlow Condensed',sans-serif; font-size:14px; letter-spacing:2px; color:var(--off-white); margin-bottom:20px; }
   .qr-warning { background:rgba(255,70,85,0.08); border:1px solid rgba(255,70,85,0.25); padding:12px 20px; font-family:'Barlow Condensed',sans-serif; font-size:13px; letter-spacing:1px; color:var(--off-white); margin-bottom:20px; }
@@ -159,7 +160,58 @@
   @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
   .fade-in { animation:fadeInUp 0.4s ease both; }
   #confetti-canvas { position:fixed; inset:0; pointer-events:none; z-index:9999; display:none; }
-  @media(max-width:700px){ .form-grid{grid-template-columns:1fr} .form-group.span2{grid-column:span 1} .stats-row{flex-direction:column} .stat-item{border-right:none;border-bottom:1px solid var(--border)} .hero-title{font-size:52px} .topbar{padding:0 16px} .topbar-logo{font-size:16px} }
+  @media(max-width:700px){
+  /* Layout */
+  .form-grid{grid-template-columns:1fr}
+  .form-group.span2{grid-column:span 1}
+
+  /* Hero */
+  .hero-title{font-size:clamp(38px,11vw,52px)}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-secondary{width:100%;text-align:center}
+  .stats-row{flex-direction:column}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);padding:16px 24px}
+  .stat-item:last-child{border-bottom:none}
+
+  /* Topbar */
+  .topbar{padding:0 16px}
+  .topbar-logo{font-size:15px;gap:7px}
+  .nav-btn{font-size:11px;padding:5px 12px;letter-spacing:1px}
+
+  /* Registration form */
+  .container{padding:72px 16px 48px}
+  .card{padding:20px 16px}
+  .steps{gap:0}
+  .step-label{display:none}          /* labels hidden on mobile, keep numbers */
+  .step-num{width:28px;height:28px;font-size:10px}
+
+  /* Status card */
+  .status-card-wrap{padding:0 12px}
+  .status-card{padding:18px 16px}
+  .sc-meta{gap:12px}
+
+  /* Success */
+  .success-card{padding:36px 20px}
+  .success-title{font-size:38px;letter-spacing:3px}
+
+  /* Payment */
+  .payment-methods{max-width:100%}
+  .qr-panel{padding:20px 12px}
+  .qr-amount{font-size:28px}
+
+  /* Page header */
+  .page-title{font-size:34px;letter-spacing:2px}
+}
+@media(max-width:400px){
+  .hero-title{font-size:clamp(32px,10vw,42px)}
+  .hero-eyebrow{font-size:11px;letter-spacing:4px}
+  .season-tag{font-size:11px;letter-spacing:2px}
+  .stat-num{font-size:24px}
+  .topbar-nav{gap:2px}
+  .nav-btn{font-size:10px;padding:4px 8px}
+  .gcash-number{font-size:16px;letter-spacing:2px}
+  .reg-id{font-size:16px;letter-spacing:2px}
+}
   ::-webkit-scrollbar{width:6px;height:6px} ::-webkit-scrollbar-track{background:var(--bg2)} ::-webkit-scrollbar-thumb{background:rgba(255,70,85,0.3)} ::-webkit-scrollbar-thumb:hover{background:var(--red)}
 </style>
 </head>
